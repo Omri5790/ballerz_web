@@ -14,7 +14,7 @@ npm run build    # בדיקת production
 npm run start
 ```
 
-Node 20+ נדרש.
+Node 20+ נדרש.ץ
 
 ---
 
