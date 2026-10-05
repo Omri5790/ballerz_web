@@ -2,9 +2,9 @@ import Section from "@/components/ui/Section";
 import { standard } from "@/data/system";
 import { delay } from "@/lib/cn";
 
-export default function Standard() {
+export default function Standard({ index = "07" }: { index?: string }) {
   return (
-    <Section id="standard" index="07" label="THE STANDARD" meta="CULTURE" tone="ink">
+    <Section id="standard" index={index} label="THE STANDARD" meta="CULTURE" tone="ink">
       <div className="grid gap-12 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-5">
           <h2 className="display t-h1" data-reveal>

@@ -3,7 +3,7 @@ import { freedomPrinciples } from "@/data/system";
 import { HalfCourt } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
 
-export default function Freedom() {
+export default function Freedom({ index = "06" }: { index?: string }) {
   return (
     <Section id="freedom" full tone="ink2" className="relative overflow-hidden py-20 md:py-28 lg:py-36">
       <HalfCourt
@@ -11,7 +11,7 @@ export default function Freedom() {
       />
 
       <Container className="relative">
-        <SectionIndex index="06" label="FREEDOM" meta="BRAND CORE" />
+        <SectionIndex index={index} label="FREEDOM" meta="BRAND CORE" />
 
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-7">

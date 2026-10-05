@@ -3,16 +3,21 @@ import PageHero from "@/components/layout/PageHero";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import Ticker from "@/components/ui/Ticker";
+import Program from "@/components/home/Program";
+import Develop from "@/components/home/Develop";
+import SystemLoop from "@/components/home/SystemLoop";
+import Freedom from "@/components/home/Freedom";
+import Standard from "@/components/home/Standard";
+import FinalCta from "@/components/sections/FinalCta";
 import { methodChapters, entryRequirement } from "@/data/method";
-import { systemLoop } from "@/data/system";
 import { cta } from "@/data/site";
 import { PlayDiagram } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
 
 export const metadata: Metadata = {
-  title: "THE BALLERZ METHOD — השיטה",
+  title: "התכנית המקצועית — פיתוח שחקני כדורסל",
   description:
-    "BALLERZ היא מערכת ולא אוסף תרגילים: תפיסה, אימון, פיתוח יכולת, יצירתיות, יישום במשחק, תחרות, אחריות ופיתוח לאורך זמן.",
+    "התכנית המקצועית של BALLERZ: קליעה, סיומות ו-1 על 1 ויצירת יתרון, לצד תכנית עבודה עצמאית ומעקב שבועי. שיטה כתובה לפיתוח שחקני כדורסל — לא אוסף תרגילים.",
   alternates: { canonical: "/method" },
 };
 
@@ -20,49 +25,38 @@ export default function MethodPage() {
   return (
     <>
       <PageHero
-        eyebrow="METHOD"
-        meta="08 CHAPTERS"
+        eyebrow="THE PROGRAM"
+        meta="03 CORE AREAS · 08 CHAPTERS"
         titleEn={
           <>
             THE BALLERZ
             <br />
-            METHOD<span className="text-flare">.</span>
+            PROGRAM<span className="text-flare">.</span>
           </>
         }
-        lead="שיטה היא לא רשימת תרגילים. היא סדר עבודה: מה מלמדים, באיזה סדר, איך בודקים שזה עובד, ומה קורה כשזה לא."
-      />
+        lead="תכנית היא לא רשימת תרגילים. היא סדר עבודה: על מה עובדים, באיזה סדר, איך בודקים שזה עובד, ומה קורה כשזה לא."
+      >
+        <Button href={cta.combine.href} variant="flare" size="lg">
+          {cta.combine.label}
+        </Button>
+      </PageHero>
 
       <Ticker
-        items={["A SYSTEM", "NOT A COLLECTION OF DRILLS", "TRANSFER OVER REPS", "BUILT WITH INTENT"]}
+        items={["A SYSTEM", "NOT A COLLECTION OF DRILLS", "TRANSFER OVER REPS", "DO THE WORK"]}
         tone="flare"
       />
 
-      {/* הלולאה בקצרה */}
-      <Section index="00" label="THE LOOP" meta="TRAIN → APPLY → COMPETE → TRACK → REPEAT" tone="ink">
-        <ul className="grid gap-px bg-asphalt/30 sm:grid-cols-2 lg:grid-cols-5">
-          {systemLoop.map((s, i) => (
-            <li
-              key={s.index}
-              className="group relative bg-ink-2 p-6 transition-colors duration-500 hover:bg-flare"
-              data-reveal
-              style={delay(60 * i)}
-            >
-              <span className="spec text-flare transition-colors duration-500 group-hover:text-ink/60">
-                {s.index}
-              </span>
-              <h2 className="display mt-8 text-[1.5rem] leading-none text-bone transition-colors duration-500 group-hover:text-ink">
-                {s.en}
-              </h2>
-              <p className="body-he mt-2 text-sm text-bone/60 transition-colors duration-500 group-hover:text-ink/75">
-                {s.body}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {/* תחומי הליבה + עבודה עצמאית + מעקב */}
+      <Program index="01" showCta={false} />
+
+      {/* 09 תחומי פיתוח */}
+      <Develop index="02" />
+
+      {/* הלולאה */}
+      <SystemLoop index="03" />
 
       {/* 08 פרקים */}
-      <Section index="01" label="CHAPTERS" meta="THE WRITTEN METHOD" tone="ink2">
+      <Section index="04" label="CHAPTERS" meta="THE WRITTEN METHOD" tone="ink">
         <div className="relative">
           <PlayDiagram className="pointer-events-none absolute -top-10 end-0 hidden h-56 w-auto text-asphalt/18 lg:block" />
 
@@ -73,7 +67,7 @@ export default function MethodPage() {
                   <div className="md:col-span-4">
                     <span className="spec text-flare">{c.index}</span>
                     <h2 className="display t-h3 mt-3 leading-none text-bone">{c.en}</h2>
-                    <p className="body-he mt-1 text-sm text-asphalt-2">{c.he}</p>
+                    <p className="label-he mt-2 text-asphalt-2">{c.he}</p>
                   </div>
 
                   <div className="md:col-span-8">
@@ -94,8 +88,14 @@ export default function MethodPage() {
         </div>
       </Section>
 
+      {/* חופש ויצירתיות */}
+      <Freedom index="05" />
+
+      {/* תרבות עבודה */}
+      <Standard index="06" />
+
       {/* רמת כניסה */}
-      <Section index="02" label="ENTRY STANDARD" meta="WHO THIS IS FOR" tone="bone">
+      <Section index="07" label="ENTRY STANDARD" meta="WHO THIS IS FOR" tone="bone">
         <div className="grid gap-10 md:grid-cols-12 md:gap-14">
           <h2 className="display t-h2 text-ink md:col-span-6" data-reveal>
             WHO BALLERZ
@@ -112,14 +112,16 @@ export default function MethodPage() {
         </div>
 
         <div className="mt-12 flex flex-wrap gap-4" data-reveal>
-          <Button href={cta.join.href} variant="flare" size="lg">
-            {cta.join.label}
+          <Button href={cta.combine.href} variant="flare" size="lg">
+            {cta.combine.label}
           </Button>
-          <Button href={cta.clubs.href} variant="ink" size="lg">
-            {cta.clubs.label}
+          <Button href={cta.centers.href} variant="ink" size="lg">
+            {cta.centers.label}
           </Button>
         </div>
       </Section>
+
+      <FinalCta />
     </>
   );
 }

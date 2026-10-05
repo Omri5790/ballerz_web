@@ -3,12 +3,13 @@ import { site } from "@/data/site";
 
 const routes = [
   { path: "/", priority: 1 },
-  { path: "/clubs", priority: 0.9 },
-  { path: "/schools", priority: 0.9 },
-  { path: "/method", priority: 0.8 },
-  { path: "/centers", priority: 0.8 },
+  { path: "/combine", priority: 0.95 },
+  { path: "/centers", priority: 0.9 },
   { path: "/join", priority: 0.9 },
-  { path: "/clubs/contact", priority: 0.7 },
+  { path: "/method", priority: 0.85 },
+  { path: "/schools", priority: 0.8 },
+  { path: "/clubs", priority: 0.7 },
+  { path: "/clubs/contact", priority: 0.6 },
   { path: "/about", priority: 0.6 },
 ];
 

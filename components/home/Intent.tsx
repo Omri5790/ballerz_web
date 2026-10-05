@@ -4,9 +4,9 @@ import { intentPillars } from "@/data/system";
 import { PlayDiagram, MeasureBar } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
 
-export default function Intent() {
+export default function Intent({ index = "11" }: { index?: string }) {
   return (
-    <Section id="intent" index="11" label="BUILT WITH INTENT" meta="METHOD · DETAIL · RESEARCH" tone="ink2">
+    <Section id="intent" index={index} label="BUILT WITH INTENT" meta="METHOD · DETAIL · RESEARCH" tone="ink2">
       <div className="grid gap-10 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-5">
           <h2 className="display t-h1" data-reveal>

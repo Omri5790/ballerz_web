@@ -3,6 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import Section from "@/components/ui/Section";
 import MediaSlot from "@/components/ui/MediaSlot";
 import ReadyToBuild from "@/components/sections/ReadyToBuild";
+import Intent from "@/components/home/Intent";
 import Ticker from "@/components/ui/Ticker";
 import { founder } from "@/data/founder";
 import { MeasureBar } from "@/components/ui/CourtArt";
@@ -197,6 +198,8 @@ export default function AboutPage() {
           ))}
         </ul>
       </Section>
+
+      <Intent index="05" />
 
       <ReadyToBuild />
     </>

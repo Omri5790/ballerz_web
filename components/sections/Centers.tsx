@@ -1,33 +1,44 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
-import { centers, expansionCities, centerStatusMeta } from "@/data/centers";
+import { centers, centerStatusMeta } from "@/data/centers";
 import { cta } from "@/data/site";
 import { cn, delay } from "@/lib/cn";
 
 export default function Centers({
-  index = "08",
+  index = "02",
   showHeadline = true,
 }: {
   index?: string;
   showHeadline?: boolean;
 }) {
   return (
-    <Section id="centers" index={index} label="CENTERS" meta="EXPANDING" tone="ink2">
+    <Section
+      id="centers"
+      index={index}
+      label="TRAINING CENTERS"
+      meta={`${String(centers.length).padStart(2, "0")} OPEN`}
+      tone="ink2"
+    >
       {showHeadline && (
-        <div className="grid gap-8 md:grid-cols-12 md:gap-14">
-          <h2 className="display t-h1 md:col-span-7" data-reveal>
-            FIND YOUR
-            <br />
-            CENTER<span className="text-flare">.</span>
-          </h2>
-          <p className="body-he text-bone/70 md:col-span-5 md:pt-3" data-reveal style={delay(120)}>
-            כל מרכז BALLERZ פועל לפי אותה שיטה, אותה תכנית ואותו סטנדרט. משנים את העיר —
-            לא את המערכת.
+        <div className="grid gap-7 md:grid-cols-12 md:gap-14">
+          <div className="md:col-span-7">
+            <h2 className="display t-h1" data-reveal>
+              FIND YOUR
+              <br />
+              CENTER<span className="text-flare">.</span>
+            </h2>
+            <p className="display-he t-h2-he mt-4 text-bone" data-reveal style={delay(90)}>
+              מרכזי BALLERZ
+            </p>
+          </div>
+          <p className="body-he text-bone/70 md:col-span-5 md:pt-3" data-reveal style={delay(140)}>
+            כל מרכז פועל לפי אותה תכנית, אותה שיטה ואותו סטנדרט. משנים את העיר — לא את
+            המערכת.
           </p>
         </div>
       )}
 
-      <ul className="mt-12 md:mt-16">
+      <ul className="mt-10 md:mt-14">
         {centers.map((c, i) => {
           const meta = centerStatusMeta[c.status];
           return (
@@ -44,33 +55,35 @@ export default function Centers({
                       )}
                       aria-hidden
                     />
-                    <span className="label-he text-asphalt-2">{c.statusLabel}</span>
+                    <span className="label-he text-flare">{c.statusLabel}</span>
                   </div>
                   <h3 className="display t-h2 mt-2 leading-none text-bone transition-colors duration-500 group-hover:text-flare">
                     BALLERZ {c.cityEn}
                   </h3>
-                  <p className="body-he mt-1 text-sm text-asphalt-2">{c.city}</p>
+                  <p className="display-he mt-2 text-[1.1rem] text-bone/85">{c.city}</p>
                 </div>
 
                 <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:col-span-5 md:grid-cols-3">
-                  <Spec label="LOCATION" value={c.location} />
-                  <Spec label="AGES" value={c.ages} />
                   <Spec label="TRAINING DAY" value={c.trainingDay} />
+                  <Spec label="TIME" value={c.trainingTime} />
+                  <Spec label="AGES" value={c.ages} />
+                  <Spec label="VENUE" value={c.location} />
+                  <Spec label="LEVEL" value={c.level} />
                 </dl>
 
                 <div className="md:col-span-3 md:text-end">
                   <Link
-                    href={cta.join.href}
-                    className="group/btn inline-flex items-center gap-4 border border-asphalt/45 px-5 py-4 text-sm text-bone transition-colors duration-400 hover:border-flare hover:bg-flare hover:text-ink"
+                    href={`${cta.join.href}?center=${encodeURIComponent(c.city)}`}
+                    className="group/btn inline-flex w-full items-center justify-between gap-4 border border-asphalt/45 px-5 py-4 text-sm text-bone transition-colors duration-400 hover:border-flare hover:bg-flare hover:text-ink sm:w-auto sm:justify-start"
                   >
-                    {cta.join.label}
+                    הרשמה ל-{c.city}
                     <svg
                       aria-hidden
                       viewBox="0 0 24 12"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="1.6"
-                      className="h-2.5 w-6 transition-transform duration-400 group-hover/btn:-translate-x-1"
+                      className="h-2.5 w-6 shrink-0 transition-transform duration-400 group-hover/btn:-translate-x-1"
                     >
                       <path d="M24 6H1M7 1L1 6l6 5" />
                     </svg>
@@ -82,25 +95,20 @@ export default function Centers({
         })}
       </ul>
 
-      {/* הרחבה */}
-      <div className="mt-12 border-t border-asphalt/25 pt-8" data-reveal>
-        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-3">
-          <span className="spec text-asphalt-2">NEXT ON THE MAP</span>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {expansionCities.map((city) => (
-              <li key={city} className="spec spec-sm text-asphalt/70">
-                {city}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="body-he mt-4 max-w-xl text-sm text-asphalt-2">
-          מנהל מועדון שרוצה מרכז BALLERZ בעיר שלו —{" "}
+      <div className="mt-10 flex flex-col gap-4 border-t border-asphalt/25 pt-8 sm:flex-row sm:items-center sm:justify-between" data-reveal>
+        <p className="body-he max-w-xl text-sm text-asphalt-2">
+          רוצה מרכז BALLERZ בעיר שלך?{" "}
           <Link href={cta.clubsTalk.href} className="link-flare text-bone">
             דברו איתנו
           </Link>
           .
         </p>
+        <Link
+          href={cta.combine.href}
+          className="link-flare shrink-0 text-sm font-medium text-flare"
+        >
+          {cta.combine.label} ←
+        </Link>
       </div>
     </Section>
   );

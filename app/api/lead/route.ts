@@ -16,7 +16,7 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 type Payload = {
-  kind: "player" | "club" | "school";
+  kind: "player" | "club" | "school" | "combine";
   data: Record<string, string>;
 };
 

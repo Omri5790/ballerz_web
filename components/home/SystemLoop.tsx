@@ -2,9 +2,9 @@ import Section from "@/components/ui/Section";
 import { systemLoop } from "@/data/system";
 import { delay } from "@/lib/cn";
 
-export default function SystemLoop() {
+export default function SystemLoop({ index = "04" }: { index?: string }) {
   return (
-    <Section id="system" index="04" label="THE SYSTEM" meta="TRAIN · APPLY · COMPETE · TRACK" tone="ink2">
+    <Section id="system" index={index} label="THE SYSTEM" meta="TRAIN · APPLY · COMPETE · TRACK" tone="ink2">
       <div className="grid gap-10 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-5">
           <h2 className="display t-h1" data-reveal>

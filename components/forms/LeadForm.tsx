@@ -6,27 +6,31 @@ import { site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 type Props = {
-  kind: "player" | "club" | "school";
+  kind: "player" | "club" | "school" | "combine";
   fields: FormField[];
   submitLabel: string;
   successTitle: string;
   successBody: string;
+  /** קישור סליקה — מוצג בפאנל ההצלחה. בלי url, לא מוצג כלום */
+  payment?: { url: string; label: string; amount?: string; note?: string };
 };
 
 /** בונה הודעת וואטסאפ מסודרת מתוך תוכן הטופס */
 function buildWhatsappUrl(
-  kind: "player" | "club" | "school",
+  kind: "player" | "club" | "school" | "combine",
   fields: FormField[],
   data: Record<string, FormDataEntryValue>,
 ) {
   if (!site.contact.whatsapp) return null;
 
   const header =
-    kind === "player"
-      ? "היי, הגעתי מהאתר של BALLERZ ואני רוצה להצטרף למרכז 🏀"
-      : kind === "school"
-        ? "היי, אני פונה מטעם בית ספר בנוגע לתכנית BALLERZ"
-        : "היי, אני פונה מטעם מועדון בנוגע להקמת מרכז BALLERZ";
+    kind === "combine"
+      ? "היי, אני רוצה להירשם ל-BALLERZ PLAYER COMBINE 🏀"
+      : kind === "player"
+        ? "היי, הגעתי מהאתר של BALLERZ ואני רוצה להצטרף לתכנית 🏀"
+        : kind === "school"
+          ? "היי, אני פונה מטעם בית ספר בנוגע לתכנית BALLERZ"
+          : "היי, אני פונה מטעם מועדון בנוגע להקמת מרכז BALLERZ";
 
   const lines = fields
     .map((f) => {
@@ -50,6 +54,7 @@ export default function LeadForm({
   submitLabel,
   successTitle,
   successBody,
+  payment,
 }: Props) {
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -89,6 +94,42 @@ export default function LeadForm({
         <span className="spec text-flare">RECEIVED</span>
         <h3 className="display t-h2 mt-4 text-bone">{successTitle}</h3>
         <p className="body-he mt-4 max-w-md text-bone/70">{successBody}</p>
+
+        {payment?.url && (
+          <div className="mt-8 border-t border-asphalt/35 pt-6">
+            <span className="spec text-asphalt-2">PAYMENT</span>
+            <a
+              href={payment.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group relative mt-4 flex items-center justify-between gap-6 overflow-hidden border border-flare bg-flare px-6 py-5 text-ink transition-colors duration-500 hover:text-bone"
+            >
+              <span
+                aria-hidden
+                className="absolute inset-0 origin-[left] scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+              />
+              <span className="relative z-10 flex flex-wrap items-baseline gap-3">
+                <span className="text-[0.95rem] font-medium">{payment.label}</span>
+                {payment.amount && (
+                  <span className="spec opacity-70">{payment.amount}</span>
+                )}
+              </span>
+              <svg
+                aria-hidden
+                viewBox="0 0 24 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                className="relative z-10 h-2.5 w-6 shrink-0 transition-transform duration-500 group-hover:-translate-x-1.5"
+              >
+                <path d="M24 6H1M7 1L1 6l6 5" />
+              </svg>
+            </a>
+            {payment.note && (
+              <p className="body-he mt-3 text-sm text-asphalt-2">{payment.note}</p>
+            )}
+          </div>
+        )}
 
         {waUrl && (
           <div className="mt-8 border-t border-asphalt/35 pt-6">

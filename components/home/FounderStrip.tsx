@@ -5,9 +5,9 @@ import { founder } from "@/data/founder";
 import { delay } from "@/lib/cn";
 
 /** סקשן קצר בכוונה. עמרי הוא שכבת credibility — לא הגיבור. */
-export default function FounderStrip() {
+export default function FounderStrip({ index = "14" }: { index?: string }) {
   return (
-    <Section id="founder" index="12" label="BEHIND THE SYSTEM" meta="CREDIBILITY" tone="ink">
+    <Section id="founder" index={index} label="BEHIND THE SYSTEM" meta="CREDIBILITY" tone="ink">
       <div className="grid gap-8 md:grid-cols-12 md:gap-12">
         <div className="md:col-span-3" data-reveal>
           <MediaSlot

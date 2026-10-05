@@ -41,10 +41,10 @@ export default function ReadyToBuild() {
         />
         <Path
           eyebrow="FOR PLAYERS & PARENTS"
-          title="BUILD YOUR GAME"
-          body="רוצים להצטרף לאחד ממרכזי BALLERZ ולהתחיל תהליך פיתוח אישי?"
-          href={cta.join.href}
-          label={cta.join.label}
+          title="KNOW WHAT'S NEXT"
+          body="רוצים להצטרף לתכנית? מתחילים ב-Combine — יום אחד של מדידה ואבחון."
+          href={cta.combine.href}
+          label={cta.combine.label}
           tone="flare"
         />
       </div>

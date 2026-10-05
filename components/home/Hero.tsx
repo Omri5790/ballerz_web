@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site, cta } from "@/data/site";
+import { centers } from "@/data/centers";
 import { Container } from "@/components/ui/Section";
 import { HalfCourt } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pb-8 pt-28 md:pb-10">
+    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pb-8 pt-28 md:pb-12">
       {/* ---------- רקע ---------- */}
       <div className="absolute inset-0" aria-hidden>
         {site.heroVideo ? (
@@ -30,7 +31,7 @@ export default function Hero() {
               fill
               priority
               sizes="100vw"
-              className="drift object-cover opacity-70"
+              className="drift object-cover opacity-[0.55]"
             />
             <div className="grid-lab absolute inset-0 opacity-25 mix-blend-overlay" />
           </div>
@@ -44,18 +45,20 @@ export default function Hero() {
           </div>
         )}
         {/* vignette + קריאות */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/45" />
-        <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,transparent_20%,rgba(17,17,17,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50" />
+        <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,transparent_15%,rgba(17,17,17,0.9)_100%)]" />
       </div>
 
       {/* ---------- שורת spec עליונה ---------- */}
       <Container className="pointer-events-none absolute inset-x-0 top-20 hidden md:top-24 md:block">
         <div className="flex items-center gap-4 text-asphalt-2">
           <span className="spec spec-sm">EST {site.since}</span>
-          <span className="h-px w-16 bg-asphalt/50" />
-          <span className="spec spec-sm">ISRAEL</span>
+          <span className="h-px w-12 bg-asphalt/50" />
+          <span className="spec spec-sm">GRADE 7 &amp; UP</span>
           <span className="h-px flex-1 bg-asphalt/30" />
-          <span className="spec spec-sm">FOR PLAYERS · FOR CLUBS</span>
+          <span className="spec spec-sm">
+            {centers.map((c) => c.cityEn).join(" · ")}
+          </span>
         </div>
       </Container>
 
@@ -63,66 +66,54 @@ export default function Hero() {
       <Container className="relative">
         <div className="flex items-center gap-3" data-reveal style={delay(60)}>
           <span className="h-2 w-2 bg-flare" aria-hidden />
-          <span className="spec text-flare">{site.tagline}</span>
+          <span className="spec text-flare">PLAYER DEVELOPMENT SYSTEM</span>
         </div>
 
+        {/* המסר המרכזי — בעברית, כי זו השפה שמוכרת */}
         <h1 className="mt-5 md:mt-7">
-          <span data-reveal-line style={delay(120)}>
-            <span className="display t-mega text-bone">BUILD</span>
+          <span className="display-he t-mega-he block text-bone" data-reveal style={delay(120)}>
+            אל תתאמן יותר.
           </span>
-          <span data-reveal-line style={delay(260)}>
-            <span className="display t-mega text-bone">
-              YOUR GAME<span className="text-flare">.</span>
-            </span>
+          <span className="display-he t-mega-he block text-flare" data-reveal style={delay(240)}>
+            תדע על מה לעבוד.
           </span>
         </h1>
 
-        <div className="mt-8 grid gap-8 border-t border-asphalt/40 pt-7 md:mt-12 md:grid-cols-12 md:items-end">
+        <p className="mt-5 md:mt-7" data-reveal style={delay(360)}>
+          <span className="display display-wide inline-block text-[0.95rem] leading-[1.15] text-asphalt-2 sm:text-[1.2rem] md:text-[1.6rem]">
+            KNOW WHERE YOU ARE. KNOW WHAT COMES NEXT.
+          </span>
+        </p>
+
+        <div className="mt-8 grid gap-7 border-t border-asphalt/40 pt-7 md:mt-11 md:gap-10 lg:grid-cols-12 lg:items-end">
           <p
-            className="body-he max-w-md text-[0.98rem] leading-relaxed text-bone/75 md:col-span-5 md:text-base"
+            className="body-he max-w-xl text-[0.98rem] leading-relaxed text-bone/80 md:text-base lg:col-span-6"
             data-reveal
-            style={delay(420)}
+            style={delay(440)}
           >
-            {site.taglineHe}
+            BALLERZ היא תכנית פיתוח שחקנים לכדורסלנים שרוצים לעלות שלב — אימון מקצועי,
+            עבודה עצמאית, מעקב וקהילה.
             <span className="mt-2 block text-asphalt-2">
-              אימון שבועי, תכנית שנתית, תחרות חודשית ומתודולוגיה אחת — לשחקנים ולמועדונים.
+              מכיתה ז׳ ומעלה · {centers.map((c) => c.city).join(" · ")}
             </span>
           </p>
 
+          {/* CTA — ראשי: Combine. משני: מרכזים */}
           <div
-            className="flex w-full flex-col gap-px bg-asphalt/40 sm:w-fit sm:flex-row md:col-span-7 md:ms-auto"
+            className="flex w-full flex-col gap-px bg-asphalt/40 sm:w-fit sm:flex-row lg:col-span-6 lg:ms-auto"
             data-reveal
-            style={delay(540)}
+            style={delay(560)}
           >
             <Link
-              href={cta.clubs.href}
-              className="group relative flex min-w-[220px] items-center justify-between gap-6 overflow-hidden bg-ink-2 px-6 py-5 transition-colors"
+              href={cta.combine.href}
+              className="group relative flex min-w-0 items-center justify-between gap-5 overflow-hidden bg-flare px-5 py-5 sm:min-w-[15rem] md:px-6"
             >
-              <span className="relative z-10">
-                <span className="spec block text-asphalt-2 transition-colors group-hover:text-ink/60">
-                  FOR CLUBS
+              <span className="relative z-10 min-w-0">
+                <span className="spec block text-ink/60 transition-colors duration-500 group-hover:text-flare">
+                  STEP 01
                 </span>
-                <span className="mt-1.5 block text-[0.95rem] text-bone transition-colors group-hover:text-ink">
-                  {cta.clubs.label}
-                </span>
-              </span>
-              <span
-                aria-hidden
-                className="absolute inset-0 origin-[left] scale-x-0 bg-bone transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-              />
-              <Arrow />
-            </Link>
-
-            <Link
-              href={cta.players.href}
-              className="group relative flex min-w-[220px] items-center justify-between gap-6 overflow-hidden bg-flare px-6 py-5"
-            >
-              <span className="relative z-10">
-                <span className="spec block text-ink/60 transition-colors group-hover:text-asphalt-2">
-                  FOR PLAYERS &amp; PARENTS
-                </span>
-                <span className="mt-1.5 block text-[0.95rem] font-medium text-ink transition-colors group-hover:text-bone">
-                  {cta.players.label}
+                <span className="mt-1.5 block text-[0.95rem] font-medium text-ink transition-colors duration-500 group-hover:text-bone">
+                  {cta.combine.label}
                 </span>
               </span>
               <span
@@ -131,10 +122,28 @@ export default function Hero() {
               />
               <Arrow onFlare />
             </Link>
+
+            <Link
+              href={cta.centers.href}
+              className="group relative flex min-w-0 items-center justify-between gap-5 overflow-hidden bg-ink-2 px-5 py-5 sm:min-w-[15rem] md:px-6"
+            >
+              <span className="relative z-10 min-w-0">
+                <span className="spec block text-asphalt-2 transition-colors duration-500 group-hover:text-ink/60">
+                  CENTERS
+                </span>
+                <span className="mt-1.5 block text-[0.95rem] text-bone transition-colors duration-500 group-hover:text-ink">
+                  {cta.centers.label}
+                </span>
+              </span>
+              <span
+                aria-hidden
+                className="absolute inset-0 origin-[left] scale-x-0 bg-bone transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
+              />
+              <Arrow />
+            </Link>
           </div>
         </div>
       </Container>
-
     </section>
   );
 }

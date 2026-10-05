@@ -133,10 +133,23 @@ body {
 
 /* Fluid display scale */
 .t-mega   { font-size: clamp(3.6rem, 15vw, 12.5rem); }
-.t-h1     { font-size: clamp(2.6rem, 8.2vw, 6.6rem); }
+.t-h1     { font-size: clamp(2.5rem, 6.6vw, 6.6rem); }
 .t-h2     { font-size: clamp(2rem, 5.6vw, 4.4rem); }
 .t-h3     { font-size: clamp(1.5rem, 3.2vw, 2.4rem); }
 .t-h4     { font-size: clamp(1.15rem, 2.1vw, 1.6rem); }
+
+/* כותרת עברית אתלטית — Heebo במשקל כבד, line-height צמוד.
+   משמשת כשהמסר המרכזי חייב להיות בעברית (Archivo לא מכיל עברית). */
+.display-he {
+  font-family: var(--font-body);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+}
+
+.t-mega-he { font-size: clamp(2.1rem, 8.6vw, 5.6rem); }
+.t-h1-he   { font-size: clamp(1.7rem, 5.4vw, 3.6rem); }
+.t-h2-he   { font-size: clamp(1.35rem, 3.6vw, 2.3rem); }
 
 /* Spec / lab micro-type — timestamps, indices, labels */
 .spec {
@@ -284,6 +297,21 @@ body {
   transition: transform 0.45s var(--ease-out-expo);
 }
 .link-flare:hover::after { transform: scaleX(1); }
+
+/* FAQ — accordion נטיבי עם <details>. בלי JS, נגיש כברירת מחדל. */
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-bar-v {
+  transform-origin: center;
+  transition: transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo);
+}
+.faq-item[open] .faq-bar-v {
+  transform: scaleY(0);
+  opacity: 0;
+}
 
 /* vertical spine label */
 .spine-label {

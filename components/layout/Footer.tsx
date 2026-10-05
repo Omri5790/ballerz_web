@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@/data/site";
-import { footerNav } from "@/data/nav";
+import { footerNav, partnerNav } from "@/data/nav";
 import { centers } from "@/data/centers";
 import { Container } from "@/components/ui/Section";
 import { MeasureBar } from "@/components/ui/CourtArt";
@@ -15,16 +15,15 @@ export default function Footer() {
 
       <Container className="relative">
         <div className="grid gap-12 border-b border-asphalt/30 pb-14 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <p className="spec text-flare">{site.tagline}</p>
-            <p className="body-he mt-4 max-w-sm text-sm text-asphalt-2">
-              {site.taglineHe}
-            </p>
+            <p className="display-he mt-4 max-w-sm text-[1.05rem] text-bone">{site.claimHe}</p>
+            <p className="body-he mt-3 max-w-sm text-sm text-asphalt-2">{site.taglineHe}</p>
             <MeasureBar className="mt-8 max-w-[240px] text-asphalt/70" />
           </div>
 
           <nav className="md:col-span-3" aria-label="ניווט תחתון">
-            <p className="spec spec-sm text-asphalt-2">NAVIGATE</p>
+            <p className="spec spec-sm text-asphalt-2">PLAYERS</p>
             <ul className="mt-5 space-y-3">
               {footerNav.map((item) => (
                 <li key={item.href}>
@@ -39,17 +38,24 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div className="md:col-span-2">
-            <p className="spec spec-sm text-asphalt-2">CENTERS</p>
+          <nav className="md:col-span-3" aria-label="עולמות נוספים">
+            <p className="spec spec-sm text-asphalt-2">SCHOOLS &amp; CLUBS</p>
             <ul className="mt-5 space-y-3">
-              {centers.map((c) => (
-                <li key={c.id} className="text-sm text-bone/80">
-                  <span className="spec spec-sm block text-asphalt-2">{c.cityEn}</span>
-                  {c.city}
+              {partnerNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="link-flare text-sm text-bone/80 transition-colors hover:text-bone"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
+            <p className="spec spec-sm mt-6 text-asphalt/70">
+              {centers.map((c) => c.cityEn).join(" · ")}
+            </p>
+          </nav>
 
           <div className="md:col-span-2">
             <p className="spec spec-sm text-asphalt-2">CONTACT</p>

@@ -3,11 +3,11 @@ import MediaSlot from "@/components/ui/MediaSlot";
 import { skillAreas } from "@/data/system";
 import { delay } from "@/lib/cn";
 
-export default function Develop() {
+export default function Develop({ index = "05" }: { index?: string }) {
   return (
     <Section id="develop" full tone="ink" className="py-20 md:py-28 lg:py-36">
       <Container>
-        <SectionIndex index="05" label="WHAT WE DEVELOP" meta="09 AREAS" />
+        <SectionIndex index={index} label="WHAT WE DEVELOP" meta="09 AREAS" />
         <div className="grid gap-8 md:grid-cols-12 md:gap-14">
           <h2 className="display t-h1 md:col-span-7" data-reveal>
             BUILD THE PLAYER.
