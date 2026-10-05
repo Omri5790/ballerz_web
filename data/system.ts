@@ -37,8 +37,8 @@ export const systemLoop: SystemStage[] = [
     index: "04",
     en: "TRACK",
     he: "מעקב",
-    body: "בחבילות מתקדמות — מעקב אחר ביצוע התכנית ואחריות על התהליך.",
-    spec: "ADVANCED PACKAGES",
+    body: "מעקב שבועי אחר ביצוע התכנית: עבודה עצמאית, נוכחות ומדדים מקצועיים.",
+    spec: "WEEKLY · MEASURED",
   },
   {
     index: "05",
@@ -74,16 +74,36 @@ export const skillAreas: SkillArea[] = [
   { index: "09", en: "GAME APPLICATION", he: "יישום במשחק", line: "המבחן היחיד: האם זה עובד במשחק.", imageSlot: "IN-GAME ACTION · 4:5" , image: "/media/dev-09-game.jpg" },
 ];
 
-/** SECTION 09 — מה שחקן מקבל */
+/**
+ * מה שחקן מקבל — גרסה מקוצרת לשימוש ב-sidebars.
+ * ה-offer המלא נמצא ב-data/offer.ts (offerStack).
+ */
 export const playerValue: { en: string; he: string; note?: string }[] = [
+  { en: "PLAYER MAP", he: "Player Map ואבחון פתיחה" },
   { en: "WEEKLY SESSION", he: "אימון Player Development שבועי" },
   { en: "SMALL GROUPS", he: "עבודה בקבוצות קטנות" },
-  { en: "YEARLY PROGRAM", he: "תכנית שנתית ולא אימון בודד" },
+  { en: "INDEPENDENT PLAN", he: "תכנית עבודה עצמאית" },
+  { en: "WEEKLY TRACKING", he: "מעקב שבועי ומדידות" },
   { en: "MONTHLY TOURNAMENT", he: "טורניר חודשי" },
-  { en: "BALLERZ GEAR", he: "ביגוד BALLERZ" },
-  { en: "WORK CULTURE", he: "תרבות עבודה מקצועית" },
-  { en: "PERFORMANCE TRACKING", he: "מעקב ביצוע התכנית", note: "בחבילות מתקדמות" },
+  { en: "COMMUNITY", he: "קהילת BALLERZ" },
+  { en: "CAMP DISCOUNT", he: "20% הנחה על מחנות BALLERZ" },
 ];
+
+/** SECTION 03 — WHAT IS BALLERZ */
+export const whatIsBallerz = {
+  headlineEn: ["NOT ANOTHER PRACTICE.", "A SYSTEM FOR THE PLAYER."],
+  headlineHe: "לא עוד אימון. מערכת לפיתוח שחקן.",
+  lead: "BALLERZ נבנתה כדי לעזור לשחקנים להבין איפה הם נמצאים, מה חסר להם, ואיך לעבוד נכון כדי להתקדם.",
+  body: "אימון קבוצתי נועד לבנות קבוצה. לכל שחקן בתוכו יש יכולות, פערים ומטרות אחרות. BALLERZ היא השכבה האישית שבין האימון הקבוצתי לבין השחקן שהוא רוצה להיות.",
+  parts: [
+    { en: "WEEKLY SESSION", he: "אימון שבועי", line: "קבוצה קטנה, פוקוס אחד." },
+    { en: "INDEPENDENT WORK", he: "עבודה עצמאית", line: "מה שקורה בין האימונים." },
+    { en: "TRACKING", he: "מעקב", line: "ביצוע, נוכחות, נפח עבודה." },
+    { en: "MEASUREMENT", he: "מדידה", line: "נקודות בדיקה מול ה-Baseline." },
+    { en: "COMMUNITY", he: "קהילה", line: "שחקנים שדוחפים קדימה." },
+    { en: "PLAYER MAP", he: "Player Map", line: "איפה אתה ומה הצעד הבא." },
+  ],
+};
 
 /** SECTION 07 — THE STANDARD */
 export const standard: { en: string; he: string }[] = [

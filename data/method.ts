@@ -106,5 +106,5 @@ export const methodChapters: MethodChapter[] = [
 export const entryRequirement = {
   titleEn: "ENTRY STANDARD",
   titleHe: "רמת כניסה",
-  body: "BALLERZ מיועדת לשחקנים שכבר משחקים כדורסל באופן קבוע במסגרת קבוצתית. זו אינה מסגרת כדורסל ראשונה.",
+  body: "BALLERZ מיועדת לשחקנים מכיתה ז׳ ומעלה שכבר משחקים כדורסל באופן קבוע במסגרת קבוצתית. זו אינה מסגרת כדורסל ראשונה.",
 };

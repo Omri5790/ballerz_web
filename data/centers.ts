@@ -2,58 +2,89 @@
  * מרכזי BALLERZ
  * ---------------------------------------------------------------
  * להוספת מרכז חדש: להוסיף אובייקט למערך. זה הכל.
+ * active: false  → המרכז לא מוצג באתר אבל נשאר בקוד (לא מוחקים היסטוריה)
  * status: "open" | "soon" | "waitlist"
+ *
+ * ⚠️ כל מה שכתוב [PLACEHOLDER] צריך ערך אמיתי לפני קמפיין.
  */
 
 export type CenterStatus = "open" | "soon" | "waitlist";
 
 export type Center = {
   id: string;
-  city: string;          // עברית
-  cityEn: string;        // אנגלית — מוצג ב-display type
+  active: boolean;
+  city: string; // עברית
+  cityEn: string; // אנגלית — מוצג ב-display type
   status: CenterStatus;
   statusLabel: string;
-  location: string;      // אולם / אזור
+  location: string; // אולם / אזור
   ages: string;
+  level: string;
   trainingDay: string;
+  trainingTime: string;
   note?: string;
 };
 
-export const centerStatusMeta: Record<CenterStatus, { label: string; tone: "flare" | "bone" | "asphalt" }> = {
+export const centerStatusMeta: Record<
+  CenterStatus,
+  { label: string; tone: "flare" | "bone" | "asphalt" }
+> = {
   open: { label: "רישום פתוח", tone: "flare" },
   soon: { label: "הרשמה בקרוב", tone: "bone" },
   waitlist: { label: "רשימת המתנה", tone: "asphalt" },
 };
 
-export const centers: Center[] = [
+const allCenters: Center[] = [
   {
     id: "modiin",
+    active: true,
     city: "מודיעין",
     cityEn: "MODI'IN",
-    status: "soon",
-    statusLabel: "הרשמה בקרוב",
-    location: "מודיעין", // TODO: שם האולם המדויק
-    ages: "כיתות ד'–ט'", // TODO: לאשר טווח גילאים
-    trainingDay: "יום אימון ייקבע", // TODO
+    status: "open",
+    statusLabel: "רישום פתוח",
+    location: "[MODIIN VENUE]", // TODO: שם האולם המדויק
+    ages: "כיתה ז׳ ומעלה",
+    level: "שחקנים שמשחקים בקבוצה",
+    trainingDay: "[TRAINING DAY]", // TODO
+    trainingTime: "[TIME]", // TODO
   },
   {
+    id: "jerusalem",
+    active: true,
+    city: "ירושלים",
+    cityEn: "JERUSALEM",
+    status: "open",
+    statusLabel: "רישום פתוח",
+    location: "[JERUSALEM VENUE]", // TODO: שם האולם המדויק
+    ages: "כיתה ז׳ ומעלה",
+    level: "שחקנים שמשחקים בקבוצה",
+    trainingDay: "[TRAINING DAY]", // TODO
+    trainingTime: "[TIME]", // TODO
+  },
+  {
+    /**
+     * מבשרת ציון — לא נמחק. היה מתוכנן בגרסה הקודמת.
+     * להפעלה: active: true + מילוי הפרטים.
+     */
     id: "mevaseret",
+    active: false,
     city: "מבשרת ציון",
     cityEn: "MEVASERET",
     status: "soon",
     statusLabel: "הרשמה בקרוב",
-    location: "מבשרת ציון", // TODO: שם האולם המדויק
-    ages: "כיתות ד'–ט'", // TODO
-    trainingDay: "יום אימון ייקבע", // TODO
+    location: "[MEVASERET VENUE]",
+    ages: "כיתה ז׳ ומעלה",
+    level: "שחקנים שמשחקים בקבוצה",
+    trainingDay: "[TRAINING DAY]",
+    trainingTime: "[TIME]",
   },
 ];
 
-/** ערים שנמצאות על המפה אבל עוד לא נפתחו — מציג את יכולת ההרחבה של המערכת */
-export const expansionCities: string[] = [
-  "JERUSALEM",
-  "TEL AVIV",
-  "HAIFA",
-  "BEER SHEVA",
-  "RAANANA",
-  "RISHON LEZION",
-];
+/** מה שמוצג באתר */
+export const centers: Center[] = allCenters.filter((c) => c.active);
+
+/** הכל, כולל מרכזים שמכובים — לשימוש פנימי */
+export const centersAll = allCenters;
+
+/** ערים שבאמת על השולחן. אל תוסיף עיר בלי כיסוי אמיתי. */
+export const expansionCities: string[] = ["[NEXT CITY]"];

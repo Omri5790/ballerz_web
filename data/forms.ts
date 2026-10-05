@@ -36,7 +36,28 @@ export const improvementGoals = [
   "כללי — פיתוח מלא",
 ];
 
+/** כיתות — התכנית מכיתה ז׳ ומעלה */
+export const grades = ["ז׳", "ח׳", "ט׳", "י׳", "יא׳", "יב׳"];
+
+/**
+ * טופס ההרשמה הקצר — זה מה שמוצג באתר.
+ * 7 שדות בלבד. כל מה שמעבר נשאל בשיחה, לא בטופס.
+ */
 export const playerFormFields: FormField[] = [
+  { name: "playerName", label: "שם השחקן", type: "text", required: true, autoComplete: "name" },
+  { name: "grade", label: "כיתה", type: "select", options: grades, required: true },
+  { name: "club", label: "מועדון", type: "text", required: true, placeholder: "המועדון שבו השחקן משחק" },
+  { name: "center", label: "מרכז מועדף", type: "select", options: [], required: true }, // options מוזרקות מ-data/centers
+  { name: "parentName", label: "שם הורה", type: "text", required: true },
+  { name: "parentPhone", label: "טלפון הורה", type: "tel", required: true, autoComplete: "tel" },
+  { name: "playerPhone", label: "טלפון שחקן", type: "tel", autoComplete: "tel" },
+];
+
+/**
+ * הטופס המורחב — לא בשימוש בדף ההרשמה כרגע.
+ * שמור כאן למקרה שנרצה טופס מלא אחרי שיחה ראשונה.
+ */
+export const playerFormFieldsFull: FormField[] = [
   { name: "playerName", label: "שם השחקן", type: "text", required: true, autoComplete: "name" },
   { name: "age", label: "גיל", type: "number", required: true },
   { name: "city", label: "עיר", type: "text", required: true, autoComplete: "address-level2" },
