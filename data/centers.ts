@@ -47,8 +47,9 @@ const allCenters: Center[] = [
     location: "[MODIIN VENUE]", // TODO: שם האולם המדויק
     ages: "כיתה ז׳ ומעלה",
     level: "שחקנים שמשחקים בקבוצה",
-    trainingDay: "[TRAINING DAY]", // TODO
-    trainingTime: "[TIME]", // TODO
+    trainingDay: "שבת",
+    trainingTime: "11:00",
+    note: "בהרשמה בלבד",
     image: "/media/dev-09-game.jpg",
   },
   {

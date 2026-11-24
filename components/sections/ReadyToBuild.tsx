@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Section";
-import { cta, features } from "@/data/site";
+import { cta, entry, features } from "@/data/site";
 import { delay } from "@/lib/cn";
 
 export default function ReadyToBuild() {
@@ -44,7 +44,7 @@ export default function ReadyToBuild() {
         <Path
           eyebrow="FOR PLAYERS & PARENTS"
           title="KNOW WHAT'S NEXT"
-          body="רוצים להצטרף לתכנית? מתחילים ב-Combine — יום אחד של מדידה ואבחון."
+          body={entry.short}
           href={cta.combine.href}
           label={cta.combine.label}
           tone="flare"

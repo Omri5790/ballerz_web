@@ -3,7 +3,7 @@ import LeadForm from "@/components/forms/LeadForm";
 import { playerFormFields } from "@/data/forms";
 import { centers } from "@/data/centers";
 import { playerValue } from "@/data/system";
-import { site, whatsappLink } from "@/data/site";
+import { entry, site, whatsappLink } from "@/data/site";
 import { delay } from "@/lib/cn";
 
 type Props = {
@@ -47,9 +47,7 @@ export default function RegisterBlock({
   );
 
   const wa = whatsappLink(
-    kind === "combine"
-      ? "היי, יש לי שאלה לגבי ה-Combine של BALLERZ"
-      : "היי, יש לי שאלה לגבי התכנית של BALLERZ",
+    kind === "combine" ? entry.question : "היי, יש לי שאלה לגבי התכנית של BALLERZ",
   );
 
   return (

@@ -79,13 +79,20 @@ export default function Centers({
                   <p className="display-he mt-2 text-[1.1rem] text-bone/85">{c.city}</p>
                 </div>
 
-                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:col-span-4 md:grid-cols-2">
-                  <Spec label="TRAINING DAY" value={c.trainingDay} />
-                  <Spec label="TIME" value={c.trainingTime} />
-                  <Spec label="AGES" value={c.ages} />
-                  <Spec label="VENUE" value={c.location} />
-                  <Spec label="LEVEL" value={c.level} />
-                </dl>
+                <div className="md:col-span-4">
+                  <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-2">
+                    <Spec label="TRAINING DAY" value={c.trainingDay} />
+                    <Spec label="TIME" value={c.trainingTime} />
+                    <Spec label="AGES" value={c.ages} />
+                    <Spec label="VENUE" value={c.location} />
+                    <Spec label="LEVEL" value={c.level} />
+                  </dl>
+                  {c.note && (
+                    <p className="label-he mt-4 inline-block border border-flare/60 px-3 py-1.5 text-flare">
+                      {c.note}
+                    </p>
+                  )}
+                </div>
 
                 <div className="md:col-span-2 md:text-end">
                   <Link
@@ -133,7 +140,9 @@ export default function Centers({
   );
 }
 
+/** שדה שעדיין לא מולא (ערך בסוגריים מרובעים) פשוט לא מוצג — עדיף חסר מאשר שבור. */
 function Spec({ label, value }: { label: string; value: string }) {
+  if (!value || value.trim().startsWith("[")) return null;
   return (
     <div>
       <dt className="spec spec-sm text-asphalt-2">{label}</dt>

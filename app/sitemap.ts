@@ -15,7 +15,11 @@ const allRoutes = [
   { path: "/about", priority: 0.6 },
 ];
 
-const routes = allRoutes.filter((r) => features.clubs || !r.path.startsWith("/clubs"));
+const routes = allRoutes.filter(
+  (r) =>
+    (features.clubs || !r.path.startsWith("/clubs")) &&
+    (features.combine || r.path !== "/combine"),
+);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

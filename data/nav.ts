@@ -13,7 +13,6 @@ export type NavItem = {
 export const primaryNav: NavItem[] = [
   { label: "מרכזים", labelEn: "CENTERS", href: "/centers" },
   { label: "התכנית", labelEn: "PROGRAM", href: "/method" },
-  { label: "Combine", labelEn: "COMBINE", href: "/combine" },
   { label: "להורים", labelEn: "PARENTS", href: "/#parents" },
   { label: "בתי ספר", labelEn: "SCHOOLS", href: "/schools" },
   { label: "אודות", labelEn: "ABOUT", href: "/about" },
@@ -22,7 +21,6 @@ export const primaryNav: NavItem[] = [
 export const footerNav: NavItem[] = [
   { label: "מרכזים", labelEn: "CENTERS", href: "/centers" },
   { label: "התכנית המקצועית", labelEn: "PROGRAM", href: "/method" },
-  { label: "Combine", labelEn: "COMBINE", href: "/combine" },
   { label: "קהילה", labelEn: "COMMUNITY", href: "/#community" },
   { label: "להורים", labelEn: "PARENTS", href: "/#parents" },
   { label: "החברות", labelEn: "MEMBERSHIP", href: "/#membership" },

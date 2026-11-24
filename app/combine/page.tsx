@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import PageHero from "@/components/layout/PageHero";
 import CombineSection from "@/components/sections/CombineSection";
 import RegisterBlock from "@/components/sections/RegisterBlock";
@@ -6,7 +7,7 @@ import OpeningTraining from "@/components/sections/OpeningTraining";
 import Faq from "@/components/sections/Faq";
 import Button from "@/components/ui/Button";
 import { combine } from "@/data/combine";
-import { cta } from "@/data/site";
+import { cta, features } from "@/data/site";
 import { centers } from "@/data/centers";
 
 export const metadata: Metadata = {
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
 };
 
 export default function CombinePage() {
+  // ה-Combine כבוי — ראה features.combine ב-data/site.ts
+  if (!features.combine) notFound();
+
   return (
     <>
       <PageHero

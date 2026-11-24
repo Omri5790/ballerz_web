@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Section";
-import { cta, site, whatsappLink } from "@/data/site";
+import { cta, entry, features, site, whatsappLink } from "@/data/site";
 import { combine } from "@/data/combine";
 import { centers } from "@/data/centers";
 import { delay } from "@/lib/cn";
@@ -31,7 +31,7 @@ export default function FinalCta() {
           רוצה לדעת מה השלב הבא שלך?
         </p>
         <p className="body-he mt-4 max-w-xl text-bone/70" data-reveal style={delay(160)}>
-          מתחילים ב-Combine: יום אחד של מדידה ואבחון, ואחריו תמונה ברורה של מה לעבוד עליו.
+          {entry.lead}
         </p>
       </Container>
 
@@ -48,19 +48,21 @@ export default function FinalCta() {
           />
           <span className="relative z-10">
             <span className="spec block text-ink/60 transition-colors duration-500 group-hover:text-flare">
-              STEP 01 · THE COMBINE
+              {entry.stepEn}
             </span>
             <span className="display t-h2 mt-6 block text-ink transition-colors duration-500 group-hover:text-bone">
-              GET YOUR
+              {entry.titleEn[0]}
               <br />
-              BASELINE
+              {entry.titleEn[1]}
             </span>
             <span className="body-he mt-4 block max-w-sm text-[0.95rem] text-ink/75 transition-colors duration-500 group-hover:text-bone/75">
-              מדידות, בדיקות Skill, פרופיל שחקן ומשחק. יוצאים עם Player Map.
+              {entry.body}
             </span>
-            <span className="spec mt-4 block text-ink/60 transition-colors duration-500 group-hover:text-flare">
-              {combine.date} · {combine.location}
-            </span>
+            {features.combine && (
+              <span className="spec mt-4 block text-ink/60 transition-colors duration-500 group-hover:text-flare">
+                {combine.date} · {combine.location}
+              </span>
+            )}
           </span>
           <span className="relative z-10 mt-8 inline-flex items-center gap-4 border-b border-ink/30 pb-3 text-sm font-medium text-ink transition-colors duration-500 group-hover:border-flare group-hover:text-flare">
             {cta.combine.label}

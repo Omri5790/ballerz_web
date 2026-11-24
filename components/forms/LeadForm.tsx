@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { FormField } from "@/data/forms";
-import { site } from "@/data/site";
+import { entry, site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 type Props = {
@@ -25,7 +25,7 @@ function buildWhatsappUrl(
 
   const header =
     kind === "combine"
-      ? "היי, אני רוצה להירשם ל-BALLERZ PLAYER COMBINE 🏀"
+      ? entry.whatsapp
       : kind === "player"
         ? "היי, הגעתי מהאתר של BALLERZ ואני רוצה להצטרף לתכנית 🏀"
         : kind === "school"

@@ -53,15 +53,51 @@ export const site = {
  */
 export const features = {
   clubs: false,
+  /**
+   * ה-Combine כבוי: האירוע של 17.10 כבר עבר.
+   * להפעלה מחדש: combine: true + עדכון התאריך, המיקום והשעה ב-data/combine.ts.
+   * הדגל מכבה את עמוד /combine, את הסקשן בדף הבית, את הניווט ואת ה-sitemap,
+   * ומחליף את כל ה-CTA הראשיים ל״השארת פרטים״.
+   */
+  combine: false,
 } as const;
+
+/**
+ * שלב הכניסה לתכנית. כל הקופי שמתאר ״איך מתחילים״ נשען על זה,
+ * כדי שהחלפת features.combine תשנה את כל האתר במקום אחד.
+ */
+export const entry = features.combine
+  ? {
+      stepEn: "STEP 01 · THE COMBINE",
+      titleEn: ["GET YOUR", "BASELINE"] as const,
+      body: "מדידות, בדיקות Skill, פרופיל שחקן ומשחק. יוצאים עם Player Map.",
+      lead: "מתחילים ב-Combine: יום אחד של מדידה ואבחון, ואחריו תמונה ברורה של מה לעבוד עליו.",
+      short: "רוצים להצטרף לתכנית? מתחילים ב-Combine — יום אחד של מדידה ואבחון.",
+      whatsapp: "היי, אני רוצה להירשם ל-BALLERZ PLAYER COMBINE 🏀",
+      question: "היי, יש לי שאלה לגבי ה-Combine של BALLERZ",
+    }
+  : {
+      stepEn: "STEP 01 · GET IN TOUCH",
+      titleEn: ["START", "THE PROCESS"] as const,
+      body: "משאירים פרטים, מדברים בוואטסאפ, ומשבצים אימון ניסיון במרכז הקרוב.",
+      lead: "משאירים פרטים ואנחנו חוזרים אליכם בוואטסאפ עם כל המידע על המרכז, התכנית והחברות.",
+      short: "רוצים להצטרף לתכנית? משאירים פרטים ואנחנו חוזרים אליכם בוואטסאפ.",
+      whatsapp: "היי, אני רוצה להצטרף ל-BALLERZ 🏀",
+      question: "היי, יש לי שאלה לגבי התכנית של BALLERZ",
+    };
 
 /**
  * CTA מרכזיים.
  * combine = ה-CTA הראשי בתקופת ההשקה. מופיע בהדר, בהירו ובסוף כל עמוד.
  */
 export const cta = {
-  combine: { label: "להרשמה ל-Combine", href: "/combine#register" },
-  combineShort: { label: "להרשמה ל-Combine", href: "/combine#register" },
+  /** ה-CTA הראשי. מתחלף אוטומטית לפי features.combine. */
+  combine: features.combine
+    ? { label: "להרשמה ל-Combine", href: "/combine#register" }
+    : { label: "להרשמה למרכז", href: "/join" },
+  combineShort: features.combine
+    ? { label: "להרשמה ל-Combine", href: "/combine#register" }
+    : { label: "השארת פרטים", href: "/join" },
   centers: { label: "לצפייה במרכזי האימון", href: "/centers" },
   join: { label: "השארת פרטים", href: "/join" },
   joinMembership: { label: "אני רוצה להצטרף", href: "/join" },
