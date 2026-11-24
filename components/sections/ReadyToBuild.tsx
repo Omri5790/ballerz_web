@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Section";
-import { cta } from "@/data/site";
+import { cta, features } from "@/data/site";
 import { delay } from "@/lib/cn";
 
 export default function ReadyToBuild() {
@@ -22,15 +22,17 @@ export default function ReadyToBuild() {
         </h2>
       </Container>
 
-      <div className="relative mt-12 grid gap-px bg-asphalt/35 md:mt-16 md:grid-cols-3">
-        <Path
-          eyebrow="FOR CLUBS"
-          title="BUILD THE SYSTEM"
-          body="רוצים להקים שכבת Player Development במועדון — בלי להקים מחלקה חדשה?"
-          href={cta.clubsTalk.href}
-          label={cta.clubsShort.label}
-          tone="ink"
-        />
+      <div className={`relative mt-12 grid gap-px bg-asphalt/35 md:mt-16 ${features.clubs ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+        {features.clubs && (
+          <Path
+            eyebrow="FOR CLUBS"
+            title="BUILD THE SYSTEM"
+            body="רוצים להקים שכבת Player Development במועדון — בלי להקים מחלקה חדשה?"
+            href={cta.clubsTalk.href}
+            label={cta.clubsShort.label}
+            tone="ink"
+          />
+        )}
         <Path
           eyebrow="FOR SCHOOLS"
           title="BUILD RESILIENCE"

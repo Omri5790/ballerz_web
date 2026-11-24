@@ -23,6 +23,8 @@ export type Center = {
   trainingDay: string;
   trainingTime: string;
   note?: string;
+  /** תמונת המרכז — קובץ מתוך public/media. null → placeholder/בריף צילום. */
+  image?: string | null;
 };
 
 export const centerStatusMeta: Record<
@@ -47,6 +49,7 @@ const allCenters: Center[] = [
     level: "שחקנים שמשחקים בקבוצה",
     trainingDay: "[TRAINING DAY]", // TODO
     trainingTime: "[TIME]", // TODO
+    image: "/media/dev-09-game.jpg",
   },
   {
     id: "jerusalem",
@@ -60,6 +63,7 @@ const allCenters: Center[] = [
     level: "שחקנים שמשחקים בקבוצה",
     trainingDay: "[TRAINING DAY]", // TODO
     trainingTime: "[TIME]", // TODO
+    image: "/media/dev-04-finishing.jpg",
   },
   {
     /**
@@ -77,6 +81,7 @@ const allCenters: Center[] = [
     level: "שחקנים שמשחקים בקבוצה",
     trainingDay: "[TRAINING DAY]",
     trainingTime: "[TIME]",
+    image: null,
   },
 ];
 

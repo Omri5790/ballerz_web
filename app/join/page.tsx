@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
+import MediaSlot from "@/components/ui/MediaSlot";
 import RegisterBlock from "@/components/sections/RegisterBlock";
 import Centers from "@/components/sections/Centers";
 import Faq from "@/components/sections/Faq";
@@ -37,6 +38,16 @@ export default function JoinPage() {
           </span>
         </div>
       </PageHero>
+
+
+      {/* רצועת תמונות — שוברת את הטופס */}
+      <section className="bg-ink px-5 pb-16 md:px-8 md:pb-24" aria-label="אימון BALLERZ">
+        <div className="mx-auto grid max-w-[1400px] gap-px bg-asphalt/30 sm:grid-cols-3" data-reveal>
+          <MediaSlot slot="DRIVE · B/W · 1:1" src="/media/play-drive.jpg" alt="שחקן פורץ לסל" index="J1" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="SHOT · B/W · 1:1" src="/media/play-shot.jpg" alt="שחקן בקליעה" index="J2" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="COACHING · B/W · 1:1" src="/media/coach-teaching.jpg" alt="מאמן מסביר לשחקן" index="J3" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+        </div>
+      </section>
 
       <RegisterBlock
         kind="player"

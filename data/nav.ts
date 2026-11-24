@@ -1,3 +1,5 @@
+import { features } from "@/data/site";
+
 export type NavItem = {
   label: string;
   labelEn: string;
@@ -29,10 +31,16 @@ export const footerNav: NavItem[] = [
 ];
 
 /** עולמות נוספים — מופיעים בפוטר בעמודה נפרדת */
-export const partnerNav: NavItem[] = [
+const allPartnerNav: NavItem[] = [
   { label: "בתי ספר", labelEn: "SCHOOLS", href: "/schools" },
+  { label: "כתבות", labelEn: "ARTICLES", href: "/schools/articles" },
   { label: "מועדונים", labelEn: "CLUBS", href: "/clubs" },
   { label: "צור קשר — מועדונים", labelEn: "CLUB CONTACT", href: "/clubs/contact" },
   { label: "צור קשר — בתי ספר", labelEn: "SCHOOL CONTACT", href: "/schools#school-contact" },
   { label: "אודות", labelEn: "ABOUT", href: "/about" },
 ];
+
+/** מסונן לפי המתגים ב-data/site.ts — מועדונים מוקפאים כרגע */
+export const partnerNav: NavItem[] = allPartnerNav.filter(
+  (item) => features.clubs || !item.href.startsWith("/clubs"),
+);

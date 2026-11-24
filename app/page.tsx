@@ -3,7 +3,6 @@ import Hero from "@/components/home/Hero";
 import Centers from "@/components/sections/Centers";
 import WhatIsBallerz from "@/components/home/WhatIsBallerz";
 import PlayerPath from "@/components/home/PlayerPath";
-import Program from "@/components/home/Program";
 import CombineSection from "@/components/sections/CombineSection";
 import OpeningTraining from "@/components/sections/OpeningTraining";
 import WhatYouGet from "@/components/home/WhatYouGet";
@@ -89,16 +88,15 @@ export default function HomePage() {
       {/* 02 */} <Centers index="02" />
       {/* 03 */} <WhatIsBallerz />
       {/* 04 */} <PlayerPath />
-      {/* 05 */} <Program />
-      {/* 06 */} <CombineSection index="06" />
-      {/* 07 */} <OpeningTraining index="07" />
-      {/* 08 */} <WhatYouGet />
-      {/* 09 */} <Community />
-      {/* 10 */} <Parents />
-      {/* 11 */} <Membership index="11" />
-      {/* 12 */} <Proof index="12" />
-      {/* 13 */} <Faq index="13" />
-      {/* 14 */} <FounderStrip index="14" />
+      {/* 05 */} <CombineSection index="05" />
+      {/* 06 */} <OpeningTraining index="06" />
+      {/* 07 */} <WhatYouGet index="07" />
+      {/* 08 */} <Community index="08" />
+      {/* 09 */} <Parents index="09" />
+      {/* 10 */} <Membership index="10" />
+      {/* 11 */} <Proof index="11" />
+      {/* 12 */} <Faq index="12" />
+      {/* 13 */} <FounderStrip index="13" />
       <Ticker items={tickerB} tone="ink" reverse />
       <FinalCta />
       <OtherWorlds />

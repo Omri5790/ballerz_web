@@ -5,9 +5,9 @@ import { parents } from "@/data/community";
 import { cta } from "@/data/site";
 import { delay } from "@/lib/cn";
 
-export default function Parents() {
+export default function Parents({ index = "09" }: { index?: string }) {
   return (
-    <Section id="parents" index="10" label="FOR PARENTS" meta="WHAT YOU SEE" tone="ink">
+    <Section id="parents" index={index} label="FOR PARENTS" meta="WHAT YOU SEE" tone="ink">
       <div className="grid gap-10 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-7">
           <h2 className="display-he t-h1-he text-bone" data-reveal>

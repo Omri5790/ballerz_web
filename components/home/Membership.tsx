@@ -1,5 +1,6 @@
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { membership, personalAddOn } from "@/data/offer";
 import { cta } from "@/data/site";
 import { MeasureBar } from "@/components/ui/CourtArt";
@@ -24,6 +25,17 @@ export default function Membership({ index = "11" }: { index?: string }) {
             {membership.lead}
           </p>
           <MeasureBar className="mt-8 max-w-[240px] text-ink/25" />
+
+          <div className="mt-9" data-reveal style={delay(200)}>
+            <MediaSlot
+              slot="FINISHING OVER A REACH · B/W · 4:5"
+              src="/media/play-reach.jpg"
+              alt="שחקן מסיים מעל יד של מגן"
+              index="MB1"
+              ratio="4/5"
+              sizes="(max-width: 768px) 100vw, 38vw"
+            />
+          </div>
         </div>
 
         <div className="md:col-span-7" data-reveal style={delay(140)}>

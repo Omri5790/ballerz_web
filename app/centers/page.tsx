@@ -101,6 +101,15 @@ export default function CentersPage() {
         </div>
       </Section>
 
+      <section className="bg-ink-2 px-5 pb-16 md:px-8 md:pb-24" aria-label="מרכזי BALLERZ">
+        <div className="mx-auto grid max-w-[1400px] gap-px bg-asphalt/30 sm:grid-cols-3" data-reveal>
+          <MediaSlot slot="HANDLE · B/W · 1:1" src="/media/play-handle.jpg" alt="שחקן מכדרר מול מגן" index="CT1" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="REACH · B/W · 1:1" src="/media/play-reach.jpg" alt="שחקן מסיים מעל יד של מגן" index="CT2" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="SHOT · B/W · 1:1" src="/media/play-shot.jpg" alt="שחקן בקליעה" index="CT3" ratio="1/1" sizes="(max-width: 640px) 100vw, 32vw" />
+        </div>
+      </section>
+
+
       <OpeningTraining index="03" />
 
       <FinalCta />

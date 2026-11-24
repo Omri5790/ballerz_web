@@ -55,36 +55,67 @@ export default function MethodPage() {
       {/* הלולאה */}
       <SystemLoop index="03" />
 
-      {/* 08 פרקים */}
+      {/* 08 פרקים — אקורדיון, כדי שהעמוד לא ייראה כמו קיר טקסט */}
       <Section index="04" label="CHAPTERS" meta="THE WRITTEN METHOD" tone="ink">
         <div className="relative">
           <PlayDiagram className="pointer-events-none absolute -top-10 end-0 hidden h-56 w-auto text-asphalt/18 lg:block" />
 
-          <ol className="relative">
-            {methodChapters.map((c, i) => (
-              <li key={c.index} data-reveal style={delay(40 * i)}>
-                <article className="grid gap-6 border-t border-asphalt/30 py-10 last:border-b md:grid-cols-12 md:gap-10">
-                  <div className="md:col-span-4">
-                    <span className="spec text-flare">{c.index}</span>
-                    <h2 className="display t-h3 mt-3 leading-none text-bone">{c.en}</h2>
-                    <p className="label-he mt-2 text-asphalt-2">{c.he}</p>
-                  </div>
+          <div className="relative grid gap-8 md:grid-cols-12 md:gap-14">
+            <div className="md:col-span-4">
+              <h2 className="display t-h2" data-reveal>
+                THE WRITTEN
+                <br />
+                METHOD<span className="text-flare">.</span>
+              </h2>
+              <p className="body-he mt-5 text-sm text-asphalt-2" data-reveal style={delay(100)}>
+                שמונה פרקים. לוחצים על פרק כדי לפתוח אותו.
+              </p>
+            </div>
 
-                  <div className="md:col-span-8">
-                    <p className="body-he lead text-bone/85">{c.lead}</p>
-                    <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                      {c.points.map((p) => (
-                        <li key={p} className="flex items-baseline gap-3">
-                          <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-flare" aria-hidden />
-                          <span className="body-he text-sm text-bone/65">{p}</span>
+            <div className="md:col-span-8">
+              {methodChapters.map((c, i) => (
+                <details
+                  key={c.index}
+                  className="faq-item group border-b border-asphalt/30 first:border-t first:border-asphalt/30"
+                  data-reveal
+                  style={delay(30 * i)}
+                >
+                  <summary className="flex items-center gap-4 py-5 md:gap-6">
+                    <span className="spec shrink-0 text-asphalt-2 transition-colors group-open:text-flare">
+                      {c.index}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="display display-wide block text-[1.05rem] leading-none text-bone transition-colors group-hover:text-flare md:text-[1.25rem]">
+                        {c.en}
+                      </span>
+                      <span className="label-he mt-1.5 block text-asphalt-2">{c.he}</span>
+                    </span>
+                    <span
+                      aria-hidden
+                      className="relative h-6 w-6 shrink-0 border border-asphalt/45 text-flare"
+                    >
+                      <span className="absolute inset-x-[25%] top-1/2 h-px -translate-y-1/2 bg-current" />
+                      <span className="faq-bar-v absolute inset-y-[25%] start-1/2 w-px bg-current" />
+                    </span>
+                  </summary>
+
+                  <div className="pb-7 pe-2 ps-[2.6rem] md:ps-[3.4rem]">
+                    <p className="body-he text-[0.98rem] leading-[1.8] text-bone/85">{c.lead}</p>
+                    <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                      {c.points.map((pt) => (
+                        <li key={pt} className="flex items-baseline gap-3">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 bg-flare" aria-hidden />
+                          <span className="body-he text-[0.88rem] leading-[1.7] text-bone/65">
+                            {pt}
+                          </span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </article>
-              </li>
-            ))}
-          </ol>
+                </details>
+              ))}
+            </div>
+          </div>
         </div>
       </Section>
 

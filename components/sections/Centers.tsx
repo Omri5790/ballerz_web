@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { centers, centerStatusMeta } from "@/data/centers";
-import { cta } from "@/data/site";
+import { cta, features } from "@/data/site";
 import { cn, delay } from "@/lib/cn";
 
 export default function Centers({
@@ -44,7 +45,19 @@ export default function Centers({
           return (
             <li key={c.id} data-reveal style={delay(90 * i)}>
               <div className="group grid gap-6 border-t border-asphalt/35 py-8 last:border-b md:grid-cols-12 md:items-center md:gap-8">
-                <div className="md:col-span-4">
+                <div className="overflow-hidden md:col-span-3">
+                  <MediaSlot
+                    slot={`${c.cityEn} CENTER · B/W · 4:5`}
+                    src={c.image}
+                    alt={`מרכז BALLERZ ${c.city}`}
+                    index={`C${i + 1}`}
+                    ratio="4/5"
+                    sizes="(max-width: 768px) 100vw, 24vw"
+                    className="transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                  />
+                </div>
+
+                <div className="md:col-span-3">
                   <div className="flex items-center gap-3">
                     <span
                       className={cn(
@@ -57,13 +70,16 @@ export default function Centers({
                     />
                     <span className="label-he text-flare">{c.statusLabel}</span>
                   </div>
-                  <h3 className="display t-h2 mt-2 leading-none text-bone transition-colors duration-500 group-hover:text-flare">
-                    BALLERZ {c.cityEn}
+                  <h3 className="mt-2 text-bone transition-colors duration-500 group-hover:text-flare">
+                    <span className="display display-wide block text-[0.95rem] leading-none text-asphalt-2">
+                      BALLERZ
+                    </span>
+                    <span className="display t-h3 mt-1.5 block leading-none">{c.cityEn}</span>
                   </h3>
                   <p className="display-he mt-2 text-[1.1rem] text-bone/85">{c.city}</p>
                 </div>
 
-                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:col-span-5 md:grid-cols-3">
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 md:col-span-4 md:grid-cols-2">
                   <Spec label="TRAINING DAY" value={c.trainingDay} />
                   <Spec label="TIME" value={c.trainingTime} />
                   <Spec label="AGES" value={c.ages} />
@@ -71,7 +87,7 @@ export default function Centers({
                   <Spec label="LEVEL" value={c.level} />
                 </dl>
 
-                <div className="md:col-span-3 md:text-end">
+                <div className="md:col-span-2 md:text-end">
                   <Link
                     href={`${cta.join.href}?center=${encodeURIComponent(c.city)}`}
                     className="group/btn inline-flex w-full items-center justify-between gap-4 border border-asphalt/45 px-5 py-4 text-sm text-bone transition-colors duration-400 hover:border-flare hover:bg-flare hover:text-ink sm:w-auto sm:justify-start"
@@ -98,7 +114,10 @@ export default function Centers({
       <div className="mt-10 flex flex-col gap-4 border-t border-asphalt/25 pt-8 sm:flex-row sm:items-center sm:justify-between" data-reveal>
         <p className="body-he max-w-xl text-sm text-asphalt-2">
           רוצה מרכז BALLERZ בעיר שלך?{" "}
-          <Link href={cta.clubsTalk.href} className="link-flare text-bone">
+          <Link
+            href={features.clubs ? cta.clubsTalk.href : cta.join.href}
+            className="link-flare text-bone"
+          >
             דברו איתנו
           </Link>
           .

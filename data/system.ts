@@ -94,15 +94,16 @@ export const whatIsBallerz = {
   headlineEn: ["NOT ANOTHER PRACTICE.", "A SYSTEM FOR THE PLAYER."],
   headlineHe: "לא עוד אימון. מערכת לפיתוח שחקן.",
   lead: "BALLERZ נבנתה כדי לעזור לשחקנים להבין איפה הם נמצאים, מה חסר להם, ואיך לעבוד נכון כדי להתקדם.",
-  body: "אימון קבוצתי נועד לבנות קבוצה. לכל שחקן בתוכו יש יכולות, פערים ומטרות אחרות. BALLERZ היא השכבה האישית שבין האימון הקבוצתי לבין השחקן שהוא רוצה להיות.",
+  body: "אימון קבוצתי בונה קבוצה. BALLERZ היא השכבה האישית שבין האימון הקבוצתי לבין השחקן שהוא רוצה להיות.",
+  /** image: קובץ מתוך public/media. null → placeholder שמשמש כבריף צילום. */
   parts: [
-    { en: "WEEKLY SESSION", he: "אימון שבועי", line: "קבוצה קטנה, פוקוס אחד." },
-    { en: "INDEPENDENT WORK", he: "עבודה עצמאית", line: "מה שקורה בין האימונים." },
-    { en: "TRACKING", he: "מעקב", line: "ביצוע, נוכחות, נפח עבודה." },
-    { en: "MEASUREMENT", he: "מדידה", line: "נקודות בדיקה מול ה-Baseline." },
-    { en: "COMMUNITY", he: "קהילה", line: "שחקנים שדוחפים קדימה." },
-    { en: "PLAYER MAP", he: "Player Map", line: "איפה אתה ומה הצעד הבא." },
-  ],
+    { en: "WEEKLY SESSION", he: "אימון שבועי", line: "קבוצה קטנה, פוקוס אחד.", image: "/media/play-handle.jpg" },
+    { en: "INDEPENDENT WORK", he: "עבודה עצמאית", line: "מה שקורה בין האימונים.", image: "/media/play-shot.jpg" },
+    { en: "TRACKING", he: "מעקב", line: "ביצוע, נוכחות, נפח עבודה.", image: "/media/intent-notes.jpg" },
+    { en: "MEASUREMENT", he: "מדידה", line: "נקודות בדיקה מול ה-Baseline.", image: "/media/dev-06-pace.jpg" },
+    { en: "COMMUNITY", he: "קהילה", line: "שחקנים שדוחפים קדימה.", image: "/media/player-group.jpg" },
+    { en: "PLAYER MAP", he: "Player Map", line: "איפה אתה ומה הצעד הבא.", image: "/media/dev-07-decision.jpg" },
+  ] as { en: string; he: string; line: string; image: string | null }[],
 };
 
 /** SECTION 07 — THE STANDARD */

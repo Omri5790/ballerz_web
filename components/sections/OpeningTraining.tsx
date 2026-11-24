@@ -5,7 +5,12 @@ import { openingTraining as ot } from "@/data/combine";
 import { cta } from "@/data/site";
 import { delay } from "@/lib/cn";
 
-export default function OpeningTraining({ index = "07" }: { index?: string }) {
+export default function OpeningTraining({ index = "06" }: { index?: string }) {
+  // כל עוד התאריך/המרכז/השעה לא מולאו — ה-Section לא מוצג בכלל,
+  // כדי שלא יופיעו סוגריים מרובעים באתר החי. ברגע שממלאים ב-data/combine.ts הוא חוזר.
+  const ready = ![ot.date, ot.center, ot.time].some((v) => v.trim().startsWith("["));
+  if (!ready) return null;
+
   return (
     <Section id="opening" index={index} label="OPENING TRAINING" meta="SEASON START" tone="ink">
       <div className="grid gap-10 md:grid-cols-12 md:gap-14">

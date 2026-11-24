@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   title: "למועדונים — שכבת Player Development מוכנה",
   description:
     "BALLERZ מאפשרת למועדון כדורסל להוסיף שכבת פיתוח שחקנים מקצועית — צוות מאמנים, מתודולוגיה, תכנית שנתית ותפעול מלא — בלי להקים מחלקה חדשה.",
+  // עולם המועדונים מוקפא — data/site.ts → features.clubs
+  robots: { index: false, follow: false },
   alternates: { canonical: "/clubs" },
 };
 

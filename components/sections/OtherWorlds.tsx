@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Section";
-import { cta } from "@/data/site";
-import { delay } from "@/lib/cn";
+import { cta, features } from "@/data/site";
+import { cn, delay } from "@/lib/cn";
 
-const worlds = [
+const allWorlds = [
   {
     eyebrow: "FOR SCHOOLS",
-    titleEn: "RESILIENCE THROUGH BASKETBALL",
-    titleHe: "תכנית לבתי ספר",
-    body: "חוסן מנטלי, ויסות עצמי והכלה — דרך כדורסל. רשומים במאגר גפ״ן.",
+    titleEn: "TRAIN THE ELEMENTS",
+    titleHe: "ELEMENTS — תכנית לבתי ספר",
+    body: "שבע יכולות שמתאמנות דרך כדורסל — קשב, אומץ, קשיחות, תקשורת, התמדה, הרגלים ויצירתיות. רכישה מסל גפ״ן.",
     href: cta.schools.href,
     label: cta.schools.label,
   },
@@ -22,11 +22,15 @@ const worlds = [
   },
 ];
 
+const worlds = allWorlds.filter((w) => features.clubs || w.eyebrow !== "FOR CLUBS");
+
 /**
  * רצועה דקה בתחתית הדף — שני העולמות הנוספים של BALLERZ.
  * יושבת אחרי ה-CTA כדי לא לפצל את תשומת הלב של השחקן.
  */
 export default function OtherWorlds() {
+  if (worlds.length === 0) return null;
+
   return (
     <section className="relative overflow-hidden border-t border-asphalt/35 bg-ink-2 py-16 md:py-20">
       <div className="chainlink absolute inset-0 opacity-20" aria-hidden />
@@ -37,11 +41,11 @@ export default function OtherWorlds() {
           <span className="spec text-asphalt-2">ALSO FROM BALLERZ</span>
           <span className="h-px flex-1 bg-asphalt/35" aria-hidden />
           <span className="spec spec-sm hidden text-asphalt-2 md:inline">
-            SCHOOLS · CLUBS
+            {worlds.map((w) => w.eyebrow.replace("FOR ", "")).join(" · ")}
           </span>
         </div>
 
-        <ul className="grid gap-px bg-asphalt/30 md:grid-cols-2">
+        <ul className={cn("grid gap-px bg-asphalt/30", worlds.length > 1 && "md:grid-cols-2")}>
           {worlds.map((w, i) => (
             <li key={w.eyebrow}>
               <Link

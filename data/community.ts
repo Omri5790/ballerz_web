@@ -6,8 +6,7 @@ export const community = {
   titleEn: "MORE THAN TRAINING",
   titleHe: "יותר מאימון",
   claimEn: ["GOOD PLAYERS.", "BETTER PEOPLE.", "HIGHER STANDARDS."],
-  body:
-    "אנחנו בונים קהילה של שחקנים שהנורמה שלהם היא לעבוד קשה, לעשות אקסטרה ולהתפתח. זה משפיע על איך שמתאמנים, וזה משפיע על איך שמתנהגים.",
+  body: "קהילה שבה הנורמה היא לעבוד קשה ולעשות אקסטרה.",
 
   pillars: [
     { en: "TRAINING", he: "אימון שבועי קבוע", line: "אותה קבוצה, אותו סטנדרט, כל שבוע." },
@@ -27,8 +26,7 @@ export const parents = {
   titleHe: "להורים",
   hook: "הילד שלך כבר מתאמן הרבה.",
   question: "השאלה היא אם הוא יודע על מה הוא עובד.",
-  body:
-    "BALLERZ נותנת תמונה ברורה: איפה הילד נמצא, מה הפוקוס המקצועי שלו, איזו עבודה הוא עושה בפועל, ואיך הוא מתקדם.",
+  body: "תמונה ברורה: איפה הילד נמצא, על מה הוא עובד, ואיך הוא מתקדם.",
 
   gives: [
     { en: "WHERE HE IS", he: "איפה הוא נמצא", line: "נקודת פתיחה מדודה, לא תחושה." },
@@ -42,5 +40,5 @@ export const parents = {
     "אנחנו לא מבטיחים דקות משחק ולא מבטיחים קריירה. אנחנו מבטיחים תהליך מקצועי, מדיד, שהילד שלך יכול להתמיד בו.",
 
   mediaSlot: "PARENT-FACING PHOTO · COACH EXPLAINING TO PLAYER · B/W · 4:5",
-  image: "/media/club-coach.jpg" as string | null,
+  image: "/media/coach-teaching.jpg" as string | null,
 };

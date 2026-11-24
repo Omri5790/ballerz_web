@@ -1,4 +1,5 @@
 import Section from "@/components/ui/Section";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { faq } from "@/data/faq";
 import { delay } from "@/lib/cn";
 
@@ -17,6 +18,17 @@ export default function Faq({ index = "13" }: { index?: string }) {
           <p className="body-he mt-5 text-sm text-asphalt-2" data-reveal style={delay(140)}>
             אם משהו לא מופיע כאן — שאלו אותנו בוואטסאפ. נענה ישר.
           </p>
+
+          <div className="mt-8" data-reveal style={delay(180)}>
+            <MediaSlot
+              slot="COACH ANSWERING A PLAYER · B/W · 4:5"
+              src="/media/founder-coaching.jpg"
+              alt="מאמן מסביר לשחקן באימון BALLERZ"
+              index="FQ1"
+              ratio="4/5"
+              sizes="(max-width: 768px) 100vw, 30vw"
+            />
+          </div>
         </div>
 
         <div className="md:col-span-8">

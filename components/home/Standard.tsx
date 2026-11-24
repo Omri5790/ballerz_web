@@ -1,4 +1,5 @@
 import Section from "@/components/ui/Section";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { standard } from "@/data/system";
 import { delay } from "@/lib/cn";
 
@@ -28,6 +29,17 @@ export default function Standard({ index = "07" }: { index?: string }) {
           <p className="body-he mt-6 text-sm text-asphalt-2" data-reveal style={delay(200)}>
             זה ההבדל בין שחקן שמשתתף לשחקן שמתפתח. הוא לא מתחיל ביכולת — הוא מתחיל בהרגלים.
           </p>
+
+          <div className="mt-9" data-reveal style={delay(160)}>
+            <MediaSlot
+              slot="PLAYER COMPETING · B/W · 4:5"
+              src="/media/play-drive.jpg"
+              alt="שחקן פורץ לסל באימון BALLERZ"
+              index="SD1"
+              ratio="4/5"
+              sizes="(max-width: 768px) 100vw, 38vw"
+            />
+          </div>
         </div>
 
         <ol className="md:col-span-7">

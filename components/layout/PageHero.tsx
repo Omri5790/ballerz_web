@@ -1,23 +1,43 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Section";
 import { HalfCourt } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
 
 type Props = {
   eyebrow: string;
+  /** תמונת רקע. בלי ערך — נשארת טקסטורת האספלט */
+  image?: string | null;
   titleEn: React.ReactNode;
   lead?: string;
   meta?: string;
   children?: React.ReactNode;
 };
 
-export default function PageHero({ eyebrow, titleEn, lead, meta, children }: Props) {
+export default function PageHero({ eyebrow, image, titleEn, lead, meta, children }: Props) {
   return (
     <section className="relative overflow-hidden bg-ink pb-16 pt-32 md:pb-24 md:pt-44">
       <div className="absolute inset-0" aria-hidden>
-        <div className="asphalt absolute inset-0" />
-        <div className="grid-lab absolute inset-0 opacity-35" />
-        <HalfCourt className="absolute -top-1/3 end-[-14%] h-[190%] w-auto text-asphalt/18" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+        {image ? (
+          <>
+            <Image
+              src={image}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover opacity-50"
+            />
+            <div className="grid-lab absolute inset-0 opacity-20 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/45" />
+          </>
+        ) : (
+          <>
+            <div className="asphalt absolute inset-0" />
+            <div className="grid-lab absolute inset-0 opacity-35" />
+            <HalfCourt className="absolute -top-1/3 end-[-14%] h-[190%] w-auto text-asphalt/18" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+          </>
+        )}
       </div>
 
       <Container className="relative">

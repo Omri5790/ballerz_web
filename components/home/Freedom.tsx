@@ -1,4 +1,5 @@
 import Section, { Container, SectionIndex } from "@/components/ui/Section";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { freedomPrinciples } from "@/data/system";
 import { HalfCourt } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
@@ -58,6 +59,33 @@ export default function Freedom({ index = "06" }: { index?: string }) {
             </li>
           ))}
         </ul>
+
+        <div className="mt-px grid gap-px bg-asphalt/30 sm:grid-cols-3" data-reveal>
+          <MediaSlot
+            slot="HANDLE VS DEFENDER · B/W · 1:1"
+            src="/media/play-handle.jpg"
+            alt="שחקן מכדרר מול מגן"
+            index="FR1"
+            ratio="1/1"
+            sizes="(max-width: 640px) 100vw, 32vw"
+          />
+          <MediaSlot
+            slot="FINISH OVER CONTACT · B/W · 1:1"
+            src="/media/play-finish.jpg"
+            alt="שחקן מסיים מעל מגן"
+            index="FR2"
+            ratio="1/1"
+            sizes="(max-width: 640px) 100vw, 32vw"
+          />
+          <MediaSlot
+            slot="PULL-UP OVER A REACH · B/W · 1:1"
+            src="/media/play-contest.jpg"
+            alt="שחקן קולע מעל יד של מגן"
+            index="FR3"
+            ratio="1/1"
+            sizes="(max-width: 640px) 100vw, 32vw"
+          />
+        </div>
       </Container>
     </Section>
   );

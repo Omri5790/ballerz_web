@@ -3,9 +3,9 @@ import { Container } from "@/components/ui/Section";
 import { delay } from "@/lib/cn";
 
 const points = [
-  { en: "MENTAL TOOLS", he: "ויסות עצמי, התמודדות עם כישלון, מסוגלות" },
+  { en: "SEVEN ELEMENTS", he: "קשב, אומץ, קשיחות, תקשורת, התמדה, הרגלים, יצירתיות" },
   { en: "INCLUSION", he: "ערוץ הצלחה לתלמידים שנחסמים בכיתה" },
-  { en: "GEFEN REGISTERED", he: "רשומים במאגר משרד החינוך" },
+  { en: "GEFEN", he: "רשומים במאגר משרד החינוך — רכישה מהסל" },
 ];
 
 /** רצועה קומפקטית בדף הבית — דלת כניסה למנהלות בית ספר */
@@ -20,20 +20,20 @@ export default function SchoolsStrip() {
           <span className="spec text-flare">FOR SCHOOLS</span>
           <span className="h-px flex-1 bg-asphalt/35" aria-hidden />
           <span className="spec spec-sm hidden text-asphalt-2 md:inline">
-            RESILIENCE THROUGH BASKETBALL
+            ELEMENTS · FOR SCHOOLS
           </span>
         </div>
 
         <div className="grid gap-8 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-6">
             <h2 className="display t-h2" data-reveal>
-              THE BALL IS THE TOOL.
+              TRAIN THE
               <br />
-              <span className="text-flare">THE CHILD IS THE PROGRAM.</span>
+              <span className="text-flare">ELEMENTS.</span>
             </h2>
             <p className="body-he mt-5 max-w-lg text-bone/70" data-reveal style={delay(120)}>
-              לבתי ספר יש גם מסלול משלהם: תכנית שנתית שמאמנת חוסן מנטלי דרך כדורסל,
-              עם דגש על הכלה ועל תלמידים שמתקשים למצוא הצלחה בכיתה.
+              ELEMENTS היא השיטה שלפיה BALLERZ עובדת בבתי ספר — שבע יכולות שמתאמנות
+              דרך כדורסל, בתכנית שנתית שניתן לרכוש מתקציב גפ״ן.
             </p>
           </div>
 

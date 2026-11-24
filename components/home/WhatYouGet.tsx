@@ -5,11 +5,11 @@ import { offerStack } from "@/data/offer";
 import { cta } from "@/data/site";
 import { delay } from "@/lib/cn";
 
-export default function WhatYouGet() {
+export default function WhatYouGet({ index = "07" }: { index?: string }) {
   return (
     <Section
       id="what-you-get"
-      index="08"
+      index={index}
       label="WHAT YOU GET"
       meta={`${String(offerStack.length).padStart(2, "0")} ITEMS`}
       tone="bone"
@@ -92,8 +92,8 @@ export default function WhatYouGet() {
           <div className="mt-6 border border-ink/20 bg-ink p-6" data-reveal style={delay(220)}>
             <span className="spec text-flare">ENTRY STANDARD</span>
             <p className="body-he mt-3 text-[0.95rem] text-bone/80">
-              התכנית מיועדת לשחקנים מכיתה ז׳ ומעלה שמשחקים כדורסל באופן קבוע במסגרת
-              קבוצתית. זו אינה מסגרת כדורסל ראשונה.
+              מכיתה ז׳ ומעלה, לשחקנים שכבר משחקים במסגרת קבוצתית. זו אינה מסגרת
+              כדורסל ראשונה.
             </p>
           </div>
         </div>

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "דברו איתנו על פתיחת מרכז",
   description:
     "מנהלי מועדונים ואגודות — השאירו פרטים ונחזור אליכם לשיחה על הקמת מרכז Player Development של BALLERZ.",
+  // עולם המועדונים מוקפא — data/site.ts → features.clubs
+  robots: { index: false, follow: false },
   alternates: { canonical: "/clubs/contact" },
 };
 

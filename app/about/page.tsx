@@ -56,6 +56,14 @@ export default function AboutPage() {
         </div>
       </Section>
 
+      <section className="bg-ink px-5 pb-16 md:px-8 md:pb-20" aria-label="אימון BALLERZ">
+        <div className="mx-auto grid max-w-[1400px] gap-px bg-asphalt/30 sm:grid-cols-3" data-reveal>
+          <MediaSlot slot="COACHING DETAIL · B/W · 4:5" src="/media/coach-teaching.jpg" alt="מאמן מסביר לשחקן" index="AB1" ratio="4/5" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="FINISH OVER CONTACT · B/W · 4:5" src="/media/play-finish.jpg" alt="שחקן מסיים מעל מגן" index="AB2" ratio="4/5" sizes="(max-width: 640px) 100vw, 32vw" />
+          <MediaSlot slot="PULL-UP · B/W · 4:5" src="/media/play-contest.jpg" alt="שחקן קולע מעל יד של מגן" index="AB3" ratio="4/5" sizes="(max-width: 640px) 100vw, 32vw" />
+        </div>
+      </section>
+
       <Ticker
         items={["SYSTEM OVER PERSON", "TOOLS OVER TEMPLATES", "TRANSFER OVER DRILLS"]}
         tone="ink"

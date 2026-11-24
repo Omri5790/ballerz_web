@@ -225,3 +225,93 @@ export const schoolTestimonials: SchoolTestimonial[] = [
     brief: "מחנכת — התנהגות, ויסות או שיתוף פעולה שהשתנו במהלך השנה.",
   },
 ];
+
+/**
+ * האפשרויות שאנחנו מציעים בגפ״ן
+ * ---------------------------------------------------------------
+ * ⚠️ רק אפשרות 01 מתוארת בפרטים שכבר מופיעים באתר. אפשרויות 02 ו-03
+ * הן שלדים: כל מה שבסוגריים מרובעים הוא placeholder שצריך למלא,
+ * והן מוצגות באתר רק כש-active: true.
+ *
+ * להוספת אפשרות: להוסיף אובייקט. להורדה: active: false. זה הכל.
+ */
+export type GefenOption = {
+  id: string;
+  active: boolean;
+  index: string;
+  en: string;
+  he: string;
+  /** משפט אחד — מה זה */
+  lead: string;
+  /** למי זה מתאים */
+  forWho: string;
+  spec: { label: string; value: string }[];
+  /** מאיזה סל אפשר לרכוש את האפשרות הזאת */
+  baskets: string[];
+};
+
+export const gefenOptions: GefenOption[] = [
+  {
+    id: "annual-group",
+    active: true,
+    index: "01",
+    en: "ANNUAL GROUP",
+    he: "תכנית שנתית — קבוצה קבועה",
+    lead: "מפגש שבועי לאורך שנת הלימודים, עם אותה קבוצה ואותו מאמן.",
+    forWho:
+      "המסגרת המרכזית. מתאימה לקבוצה שנבחרת יחד עם היועצת — תלמידים שהערוץ הכיתתי לא עובד עבורם, או שכבה שמתמודדת עם אקלים חברתי.",
+    spec: [
+      { label: "FORMAT", value: "מפגש שבועי, קבוצה קבועה" },
+      { label: "GROUP SIZE", value: "קבוצות קטנות" }, // TODO: מספר משתתפים מדויק
+      { label: "GRADES", value: "כיתות ג׳–ט׳" }, // TODO: לאשר שכבות
+      { label: "DURATION", value: "שנת לימודים מלאה" },
+      { label: "LOCATION", value: "אולם או מגרש בית הספר" },
+      { label: "INCLUDED", value: "מאמן, ציוד, משוב תקופתי לצוות" },
+    ],
+    baskets: ["סל הכלה והשתלבות", "סל חינוך חברתי־ערכי", "סל צמצום פערים"],
+  },
+  {
+    id: "option-02",
+    active: false,
+    index: "02",
+    en: "[OPTION 02 NAME]",
+    he: "[שם האפשרות]",
+    lead: "[משפט אחד שמסביר מה זה]",
+    forWho: "[למי זה מתאים]",
+    spec: [
+      { label: "FORMAT", value: "[מבנה]" },
+      { label: "GROUP SIZE", value: "[גודל קבוצה]" },
+      { label: "GRADES", value: "[שכבות]" },
+      { label: "DURATION", value: "[היקף]" },
+    ],
+    baskets: ["[סל]"],
+  },
+  {
+    id: "option-03",
+    active: false,
+    index: "03",
+    en: "[OPTION 03 NAME]",
+    he: "[שם האפשרות]",
+    lead: "[משפט אחד שמסביר מה זה]",
+    forWho: "[למי זה מתאים]",
+    spec: [
+      { label: "FORMAT", value: "[מבנה]" },
+      { label: "GROUP SIZE", value: "[גודל קבוצה]" },
+      { label: "GRADES", value: "[שכבות]" },
+      { label: "DURATION", value: "[היקף]" },
+    ],
+    baskets: ["[סל]"],
+  },
+];
+
+/** האפשרויות שמוצגות באתר */
+export const activeGefenOptions = gefenOptions.filter((o) => o.active);
+
+/** הטקסט סביב סקשן גפ״ן */
+export const gefenCopy = {
+  en: "PROCUREMENT",
+  he: "רכישה דרך גפ״ן",
+  lead: "BALLERZ רשומה במאגר התוכניות והמענים של משרד החינוך, ואפשר לרכוש את התכנית מתקציב גפ״ן.",
+  body: "בית ספר בוחר את האפשרות שמתאימה לו, מאיזה סל לרכוש, ובאיזה היקף. אנחנו מתאימים את המבנה — שכבות, גודל קבוצה, יום ושעה — אחרי שיחה קצרה.",
+  note: "אין התחייבות בשיחה הראשונה. היא נועדה כדי להבין אם זה בכלל מתאים לבית הספר שלכם.",
+};

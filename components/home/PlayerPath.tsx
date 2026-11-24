@@ -1,4 +1,5 @@
 import Section from "@/components/ui/Section";
+import MediaSlot from "@/components/ui/MediaSlot";
 import { playerPath, playerPathCopy } from "@/data/playerPath";
 import { MeasureBar } from "@/components/ui/CourtArt";
 import { delay } from "@/lib/cn";
@@ -74,7 +75,18 @@ export default function PlayerPath() {
         })}
       </ol>
 
-      <p className="body-he mt-8 text-sm text-ink/50" data-reveal>
+      <div className="mt-12 md:mt-14" data-reveal>
+        <MediaSlot
+          slot="DRIVING TO THE RIM · B/W · 21:9"
+          src="/media/play-drive.jpg"
+          alt="שחקן פורץ לסל באימון BALLERZ"
+          index="PP1"
+          ratio="21/9"
+          sizes="100vw"
+        />
+      </div>
+
+      <p className="body-he mt-6 text-sm text-ink/50" data-reveal>
         {playerPathCopy.note}
       </p>
     </Section>

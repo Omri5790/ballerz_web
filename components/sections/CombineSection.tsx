@@ -63,21 +63,44 @@ export default function CombineSection({
 
         <ul className="grid gap-px bg-asphalt/30 sm:grid-cols-2 lg:grid-cols-3">
           {combine.stations.map((s, i) => (
-            <li
-              key={s.index}
-              className="group bg-ink-2 p-6 transition-colors duration-500 hover:bg-ink md:p-7"
-              data-reveal
-              style={delay(50 * i)}
-            >
-              <span className="spec text-flare">{s.index}</span>
-              <h3 className="display mt-6 text-[1.15rem] leading-[0.95] text-bone md:text-[1.35rem]">
-                {s.en}
-              </h3>
-              <p className="label-he mt-2 text-bone/85">{s.he}</p>
-              <p className="body-he mt-1.5 text-sm text-asphalt-2">{s.line}</p>
+            <li key={s.index} className="group bg-ink-2" data-reveal style={delay(50 * i)}>
+              <div className="relative overflow-hidden">
+                <MediaSlot
+                  slot={`${s.en} · COMBINE · B/W · 16:9`}
+                  src={s.image}
+                  alt={s.he}
+                  index={`ST${s.index}`}
+                  ratio="16/9"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 32vw"
+                  className="transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-2 via-ink-2/20 to-transparent"
+                  aria-hidden
+                />
+                <span className="spec absolute top-4 start-5 text-flare">{s.index}</span>
+              </div>
+              <div className="p-5 md:p-6">
+                <h3 className="display text-[1.1rem] leading-[0.95] text-bone md:text-[1.25rem]">
+                  {s.en}
+                </h3>
+                <p className="label-he mt-2 text-bone/85">{s.he}</p>
+              </div>
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* תמונה — שוברת את רצף התחנות */}
+      <div className="mt-12 md:mt-16" data-reveal>
+        <MediaSlot
+          slot="COMBINE DAY · TESTING · B/W · 21:9"
+          src="/media/gap-drive.jpg"
+          alt="שחקן באימון BALLERZ"
+          index="CB0"
+          ratio="21/9"
+          sizes="100vw"
+        />
       </div>
 
       {/* הטורניר — מה שגורם לשחקן לרצות להגיע */}
